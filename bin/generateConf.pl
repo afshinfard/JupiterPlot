@@ -27,7 +27,7 @@ my $result        = GetOptions(
 	'r=s' => \$rawConf,
 	'p=s' => \$prefix
 );
-my $piecesColor = " " . $piecesColor
+my $piecesColor = " " . $piecesColor;
 my $outputkaryotype = $prefix . ".karyotype";
 my $percentCoverage = 0;
 
