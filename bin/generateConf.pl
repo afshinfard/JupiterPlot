@@ -12,6 +12,7 @@ my $scaffoldFiles = "";
 my $scafftigsBED  = "";
 my $agpFile       = "";
 my $maxCount      = -1;
+my $piecesColor   = "vvlgrey"
 my $numScaff      = 90;
 my $rawConf       = "rawConf.conf";
 my $prefix        = "circos";
@@ -20,12 +21,13 @@ my $result        = GetOptions(
 	's=s' => \$scaffoldFiles,
 	'n=i' => \$numScaff,
 	'm=i' => \$maxCount,
+	'c=s' => \$piecesColor,
 	'b=s' => \$scafftigsBED,
 	'a=s' => \$agpFile,
 	'r=s' => \$rawConf,
 	'p=s' => \$prefix
 );
-
+my $piecesColor = " " . $piecesColor
 my $outputkaryotype = $prefix . ".karyotype";
 my $percentCoverage = 0;
 
@@ -132,7 +134,7 @@ sub outputKaryotype {
 			  . $scaffolds{$scaffoldID}
 			  . " $scaffolds{$scaffoldID} 0 "
 			  . $scaffoldsSize{$scaffoldID}
-			  . " vvlgrey"
+			  . $piecesColor
 			  . "\n" );
 		$scaffoldSum += $scaffoldsSize{$scaffoldID};
 		$count++;
